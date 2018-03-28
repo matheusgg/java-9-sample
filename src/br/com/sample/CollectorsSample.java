@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import br.com.sample.model.Book;
-import br.com.sample.model.Book.Category;
 import br.com.sample.model.BookRepository;
 
 public class CollectorsSample {
@@ -29,7 +28,7 @@ public class CollectorsSample {
         //        System.out.println(filtered2);
 
         // Collectors.flatMapping - Agrupar autores e recuperar as categorias
-        final Map<String, Set<Category>> filtered3 = books.stream()
+        final Map<String, Set<Book.Category>> filtered3 = books.stream()
                 .collect(Collectors.groupingBy(Book::getAuthor,
                         Collectors.flatMapping(b -> b.getCategories().stream(), Collectors.toSet())));
         System.out.println(filtered3);
