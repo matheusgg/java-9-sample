@@ -21,4 +21,8 @@ module br.com.sample.java {
 
     // exports indica que o pacote esta publicamente visivel e acessivel para o modulo jdk.incubator.httpclient
     exports br.com.sample.model to jdk.incubator.httpclient;
+
+    // provides ... with ... usa a estrategia de Service Loaders para indicar que sempre que uma implementacao de
+    // java.lang.System.LoggerFinder for necessaria este modulo provera br.com.sample.LoggerSample.CustomLoggerFinder
+    provides java.lang.System.LoggerFinder with br.com.sample.LoggerSample.CustomLoggerFinder;
 }
